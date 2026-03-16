@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f1117;
+    --foreground: #f8fafc;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  @apply antialiased min-h-screen selection:bg-indigo-500/30;
+  /* subtle gradient background for a premium feel */
+  background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08), transparent 25%);
+}
+
+.glass-panel {
+  @apply bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl border-white/20 dark:border-white/10 shadow-2xl;
+  border-width: 1px;
+}
+
+/* custom scrollbar for text areas */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300/50 dark:bg-slate-700/50 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400/50 dark:bg-slate-600/50;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Blog Post Content — Heading Hierarchy (SEO: H1 > H2 > H3)
+   Mirrors Project 1 (Password Generator) structure exactly
+═══════════════════════════════════════════════════════ */
+
+/* H2 — major section divider */
+.prose h2 {
+  font-size: 1.65rem !important;
+  font-weight: 800 !important;
+  color: #000000 !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.3 !important;
+  border-bottom: 2px solid #e0e7ff;
+  padding-bottom: 0.5rem;
+}
+
+/* H2 dark mode */
+.dark .prose h2 {
+  color: #f8fafc !important;
+  border-bottom-color: #818cf8;
+}
+
+/* H3 — sub-section with accent left border */
+.prose h3 {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.4 !important;
+  padding-left: 0.75rem;
+  border-left: 3px solid #6366f1;
+}
+
+.dark .prose h3 {
+  color: #f1f5f9 !important;
+  border-left-color: #818cf8;
+}
+
+/* Paragraph */
+.prose p {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #000000;
+  margin-bottom: 1.1rem;
+}
+
+.dark .prose p {
+  color: #e2e8f0;
+}
+
+/* List items */
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose li {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #000000;
+  margin-bottom: 0.35rem;
+}
+
+.dark .prose li {
+  color: #94a3b8;
+}
+
+/* Strong / Bold */
+.prose strong {
+  font-weight: 700;
+  color: #000000;
+}
+
+.dark .prose strong {
+  color: #e2e8f0;
+}
+
+/* Inline links */
+.prose a {
+  color: #4f46e5 !important;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #a5b4fc;
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+}
+
+.prose a:hover {
+  color: #4338ca !important;
+  text-decoration-color: #4338ca;
+}
+
+/* Italics */
+.prose em {
+  color: #6366f1;
+  font-style: italic;
+}
+
