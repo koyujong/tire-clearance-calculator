@@ -37,7 +37,22 @@ export const translations = {
     ctaButton: "계산기 사용하기",
     legal: "법적 고지",
     contact: "문의하기",
-    rights: "All rights reserved."
+    rights: "All rights reserved.",
+    faqTitle: "자주 묻는 질문 (FAQ)",
+    faqs: [
+      {
+        q: "타이어 외경 3% 오차 기준이 왜 중요한가요?",
+        a: "차량의 속도계와 각종 전자제어 장비(ABS, VDC 등)는 순정 타이어 외경을 기준으로 세팅되어 있습니다. 3% 이상의 오차가 발생하면 속도계가 실제 속도와 맞지 않게 되고, 전자 장비가 오작동을 일으킬 위험이 크게 증가합니다."
+      },
+      {
+        q: "인치업(휠 사이즈 증가)을 하면 연비가 떨어지나요?",
+        a: "일반적으로 휠의 크기가 커지면 무게(회전 질량)가 증가하여 가속력 둔화와 연비 저하가 발생할 수 있습니다. 단, 단조 휠 등 경량 휠을 사용하면 이를 최소화할 수 있습니다."
+      },
+      {
+        q: "이 계산기는 오프로드 타이어에도 적용되나요?",
+        a: "네, 도로용 타이어뿐만 아니라 오프로드, 픽업트럭용 대형 타이어(33인치, 35인치 등) 규격 전환시에도 정확한 외경 및 속도계 오차 결과를 제공합니다."
+      }
+    ]
   },
   en: {
     home: "Home",
@@ -75,7 +90,22 @@ export const translations = {
     ctaButton: "Use Calculator",
     legal: "Legal",
     contact: "Contact Us",
-    rights: "All rights reserved."
+    rights: "All rights reserved.",
+    faqTitle: "Frequently Asked Questions (FAQ)",
+    faqs: [
+      {
+        q: "Why is the 3% tire diameter difference rule important?",
+        a: "Your vehicle's speedometer and electronic safety systems (like ABS and VDC) are calibrated to the factory tire diameter. Exceeding a 3% difference can cause inaccurate speed readings and potential malfunction of these critical safety systems."
+      },
+      {
+        q: "Does upsizing wheels decrease fuel economy (MPG)?",
+        a: "Generally, yes. Larger wheels usually weigh more, increasing the rotational mass. This can lead to slower acceleration and decreased fuel efficiency, unless you opt for lightweight forged wheels."
+      },
+      {
+        q: "Does this calculator work for off-road and truck tires?",
+        a: "Yes, this calculator is fully applicable to all types of tires, including adjusting to 33-inch or 35-inch off-road tires for trucks and SUVs, providing accurate speedometer error results."
+      }
+    ]
   },
   es: {
     home: "Inicio",
@@ -113,6 +143,21 @@ export const translations = {
     ctaButton: "Usar calculadora",
     legal: "Legal",
     contact: "Contáctenos",
-    rights: "Todos los derechos reservados."
+    rights: "Todos los derechos reservados.",
+    faqTitle: "Preguntas Frecuentes (FAQ)",
+    faqs: [
+      {
+        q: "¿Por qué es importante la regla del 3% de diferencia de diámetro?",
+        a: "El velocímetro y los sistemas de seguridad electrónicos de su vehículo están calibrados para el diámetro del neumático de fábrica. Superar una diferencia del 3% puede causar lecturas de velocidad inexactas y un mal funcionamiento potencial de los sistemas de seguridad."
+      },
+      {
+        q: "¿Aumentar el tamaño de las llantas disminuye el ahorro de combustible?",
+        a: "Generalmente, sí. Las ruedas más grandes suelen pesar más. Esto puede llevar a una aceleración más lenta y una menor eficiencia de combustible, a menos que opte por llantas forjadas ligeras."
+      },
+      {
+        q: "¿Esta calculadora funciona para neumáticos todoterreno y de camiones?",
+        a: "Sí, esta calculadora es totalmente aplicable a todos los tipos, incluido el ajuste a neumáticos todoterreno de 33 o 35 pulgadas para camionetas y SUV, proporcionando resultados precisos de error del velocímetro."
+      }
+    ]
   }
 };
