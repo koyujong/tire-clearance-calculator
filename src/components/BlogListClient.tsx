@@ -17,7 +17,7 @@ export default function BlogListClient({ allPosts }: { allPosts: BlogPost[] }) {
   const filteredPosts = allPosts.filter((post) => post.language === lang);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Header lang={lang} setLang={setLang} />
 
       <main className="flex-grow pt-32 pb-20 px-4 max-w-7xl mx-auto w-full">

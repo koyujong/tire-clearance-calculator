@@ -160,7 +160,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-black flex flex-col font-sans">
+    <div className="min-h-screen flex flex-col font-sans">
       <Header lang={lang} setLang={setLang} title={l.title} />
 
       <main className="flex-grow w-full max-w-4xl mx-auto px-4 py-24 space-y-8">
