@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDownIcon, Truck } from "lucide-react";
+import { useTheme } from "next-themes";
+import { ChevronDownIcon, Truck, Sun, Moon } from "lucide-react";
 import { Language, translations } from "@/lib/translations";
 
 const langLabelsLabel: Record<Language, string> = {
@@ -25,8 +26,11 @@ export default function BlogNav({ activePage = "blog", translations: blogTransla
     const dropdownRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
     const t = translations[lang];
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
@@ -51,7 +55,7 @@ export default function BlogNav({ activePage = "blog", translations: blogTransla
     };
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <nav className="fixed top-0 w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-lg">
@@ -62,7 +66,7 @@ export default function BlogNav({ activePage = "blog", translations: blogTransla
                     </span>
                 </Link>
 
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4">
                     <Link
                         href="/"
                         className={`text-sm font-semibold transition-colors ${activePage === "home" ? "text-indigo-600 dark:text-indigo-400 font-bold" : "text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400"}`}
@@ -76,8 +80,19 @@ export default function BlogNav({ activePage = "blog", translations: blogTransla
                         {t.blog}
                     </Link>
 
+                    {/* Dark mode toggle */}
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            className="p-2 rounded-full border border-slate-200 dark:border-slate-700 hover:border-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-slate-300"
+                            aria-label="Toggle dark mode"
+                        >
+                            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                        </button>
+                    )}
+
                     <div className="relative" ref={dropdownRef}>
-                        <button 
+                        <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:bg-white dark:hover:bg-slate-800 transition-all text-sm font-medium text-slate-700 dark:text-slate-200"
                         >
