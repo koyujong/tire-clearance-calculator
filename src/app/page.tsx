@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ArrowRight, Info, AlertTriangle, Link2, Copy, Check, TrendingUp } from "lucide-react";
 import { Language } from "@/lib/translations";
 import { extraTranslations } from "@/lib/extraTranslations";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CountdownOverlay from "@/components/CountdownOverlay";
 
 interface TireSpec {
   width: number;
@@ -84,6 +85,8 @@ export default function Home() {
   
   const [calc1, setCalc1] = useState<CalcResult>(calculateTire(metricFactory));
   const [calc2, setCalc2] = useState<CalcResult>(calculateTire(metricNew));
+  const [showResult, setShowResult] = useState(false);
+  const [isCountdown, setIsCountdown] = useState(false);
 
   /* 
   useEffect(() => {
@@ -100,7 +103,19 @@ export default function Home() {
   useEffect(() => {
     setCalc1(calculateTire(metricFactory));
     setCalc2(calculateTire(metricNew));
+    setShowResult(false);
   }, [metricFactory, metricNew]);
+
+  const handleCalculate = () => {
+    setCalc1(calculateTire(metricFactory));
+    setCalc2(calculateTire(metricNew));
+    setIsCountdown(true);
+  };
+
+  const handleCountdownComplete = useCallback(() => {
+    setShowResult(true);
+    setIsCountdown(false);
+  }, []);
 
   const t = extraTranslations[lang];
 
@@ -224,7 +239,21 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Calculate Button */}
+        {!showResult && (
+          <button
+            onClick={handleCalculate}
+            disabled={isCountdown}
+            className="w-full py-5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xl rounded-2xl shadow-[0_10px_30px_rgba(59,130,246,0.3)] transition-all hover:shadow-[0_15px_40px_rgba(59,130,246,0.4)] active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-50"
+          >
+            <TrendingUp className="w-6 h-6" />
+            {lang === "ko" ? "계산하기" : lang === "es" ? "Calcular" : "Calculate"}
+          </button>
+        )}
+
         {/* Warning Badge */}
+        {showResult && (
+        <>
         {Math.abs(speedoError) > 3 ? (
           <div className="bg-red-50 text-red-700 p-4 rounded-xl flex items-start gap-3 border border-red-100">
             <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5 text-red-500" />
@@ -376,6 +405,8 @@ export default function Home() {
               {l.shopDeals}: {metricNew.width}/{metricNew.aspectRatio}R{metricNew.wheel}
            </a>
         </div>
+        </>
+        )}
 
         {/* AdSense Bottom Placeholder */}
         <div className="w-full bg-slate-100 rounded-lg p-4 mt-8 text-center text-sm text-slate-400 border border-slate-200">
@@ -386,6 +417,15 @@ export default function Home() {
       
       {/* Basic Footer Link Array */}
       <Footer lang={lang} />
+
+      {/* Countdown Overlay */}
+      {isCountdown && (
+        <CountdownOverlay
+          duration={10}
+          onComplete={handleCountdownComplete}
+          lang={lang}
+        />
+      )}
     </div>
   );
 }
