@@ -1,6 +1,6 @@
 export interface BlogPost {
   slug: string;
-  language: "ko" | "en" | "es";
+  language: "ko" | "en" | "es" | "ja";
   translationGroup: string;
   title: string;
   description: string;
@@ -961,5 +961,90 @@ export const blogPosts: BlogPost[] = [
 <p>No adivines con tu ajuste. Usa nuestro <a href="/">Simulador de Altura Libre de Neumáticos</a> para ver cómo tu combinación elegida se desempeñará en el mundo real.</p>
 `.trim()
   },
+  {
+    slug: "how-tire-pressure-affects-diameter-and-mpg",
+    language: "en",
+    translationGroup: "tire-pressure-mpg",
+    title: "How Tire Pressure (PSI) Affects Your Tire's True Diameter and MPG",
+    description: "Discover why running the wrong tire pressure can change your actual tire diameter, affecting your speedometer accuracy, fuel economy, and tire lifespan.",
+    date: "2026-03-22",
+    category: "Tire Science",
+    keywords: ["tire pressure diameter", "PSI speedometer error", "fuel economy tire pressure", "truck tire inflation guide"],
+    content: `
+<h2>The Hidden Variable in Tire Math: Air Pressure</h2>
+<p>When you use a tire size calculator to find the exact diameter of a specific tire size—say, a 285/70R17—the result is a theoretical, mathematically perfect cylinder. However, rubber is flexible. The moment you mount that tire on a wheel and put the weight of a 5,000-pound truck on it, the theoretical diameter changes. The biggest factor influencing this change? <strong>Tire Pressure (PSI).</strong></p>
 
+<h3>The "Loaded" Rolling Radius</h3>
+<p>Your vehicle's speedometer doesn't care about the tire's diameter when it's sitting unmounted in a garage. It only cares about the <strong>Loaded Rolling Radius</strong>—the distance from the center of the axle to the ground while driving. If your tires are under-inflated, the sidewall squats. This effectively reduces the rolling radius of the tire. A 33-inch tire running at a low 20 PSI might actually have a rolling diameter closer to 31.8 inches. This means your speedometer will actually read faster than you are going, even if you upgraded your tire size!</p>
+
+<h2>The Direct Impact on MPG</h2>
+<p>Under-inflated tires increase the "contact patch"—the amount of rubber touching the road. While this is great for rock crawling in the desert, it is terrible for highway fuel economy. A larger contact patch means exponentially higher rolling resistance. The engine must burn more fuel to maintain highway speeds. Ensuring your tires are inflated to the manufacturer's recommended PSI (or slightly higher for heavy E-rated tires) is the easiest way to recover lost MPG after upgrading to larger tires.</p>
+
+<h2>Conclusion</h2>
+<p>Variables matter. Use our <a href="/">Speedometer Error Calculator</a> to keep track of your theoretical numbers, but always verify your actual speed using a GPS app and adjust your PSI accordingly.</p>
+`
+  },
+  {
+    slug: "how-tire-pressure-affects-diameter-and-mpg-ko",
+    language: "ko",
+    translationGroup: "tire-pressure-mpg",
+    title: "타이어 공기압(PSI)이 실제 외경과 연비에 미치는 영향",
+    description: "잘못된 공기압이 타이어의 실제 회전 직경을 변화시켜 속도계 오차와 연비 하락을 유발하는 원리를 분석합니다.",
+    date: "2026-03-22",
+    category: "타이어 과학",
+    keywords: ["공기압외경변화", "PSI연비", "타이어공기압", "속도계오차", "오프로드튜닝"],
+    content: `
+<h2>타이어 계산기의 숨겨진 변수: 공기압</h2>
+<p>타이어 외경 계산기로 285/70R17 사이즈를 치면 약 32.7인치라는 정교한 이론적 수치가 나옵니다. 하지만 타이어는 딱딱한 플라스틱이 아니라 유연한 고무입니다. 2톤이 넘는 픽업트럭의 무게가 실리는 순간, 수치상의 직경은 변형됩니다. 이 변형을 결정짓는 가장 핵심 변수가 바로 <strong>타이어 공기압(PSI)</strong>입니다.</p>
+
+<h3>눌린 회전 반경(Loaded Rolling Radius)의 비밀</h3>
+<p>차량의 속도계는 허공에 떠 있는 타이어의 직경이 아니라, 바퀴의 중심축에서 지면까지 눌린 상태의 <strong>실제 회전 반경(Loaded Rolling Radius)</strong>을 기준으로 속도를 측정합니다. 만약 타이어 공기압이 부족하면 사이드월이 주저앉게 됩니다. 33인치 타이어에 오프로드를 위해 공기압을 20 PSI로 뺐다면, 실제 구동되는 외경은 31.8인치 수준으로 줄어듭니다. 이는 타이어를 인치업했음에도 불구하고 속도계가 실제 속도보다 더 바쁘게 올라가는 현상을 유발합니다.</p>
+
+<h2>연비(MPG)에 미치는 직접적인 타격</h2>
+<p>공기압이 부족하면 노면과 맞닿는 '접지면(Contact patch)'이 넓어집니다. 돌밭이나 진흙에서는 훌륭한 접지력을 발휘하지만, 고속도로에서는 끔찍한 구름 저항(Rolling Resistance)을 만들어냅니다. 엔진은 차를 밀고 가기 위해 훨씬 더 많은 연료를 태워야 합니다. 큰 타이어로 변경 후 연비 하락을 방어하는 가장 쉬운 방법은 무거운 LT(Light Truck) 타이어의 권장 공기압을 꾸준히 체크하고 유지하는 것입니다.</p>
+
+<h2>결론</h2>
+<p>타이어 세팅은 이론과 실제의 밸런스입니다. 기본 스펙 오차는 언제나 <a href="/">외경 계산기</a>로 확인하시고, 장착 후에는 반드시 GPS와 비교하여 최적의 공기압을 세팅하세요.</p>
+`
+  },
+  {
+    slug: "how-tire-pressure-affects-diameter-and-mpg-es",
+    language: "es",
+    translationGroup: "tire-pressure-mpg",
+    title: "Presión de neumáticos: Impacto en diámetro real y MPG",
+    description: "Por qué una presión de neumáticos incorrecta cambia su diámetro real, afectando el velocímetro y su consumo.",
+    date: "2026-03-22",
+    category: "Ciencia",
+    keywords: ["presión neumáticos", "diámetro real", "MPG", "rendimiento"],
+    content: `
+<h2>La variable oculta: Presión del aire</h2>
+<p>Cuando usas una calculadora de tamaño de neumáticos para encontrar el diámetro exacto de una medida específica, el resultado es un cilindro matemático y teórico. Sin embargo, el caucho es flexible. El factor que más influye en este cambio de diámetro es la <strong>Presión del Neumático (PSI)</strong>.</p>
+
+<h3>El radio de rodadura "bajo carga"</h3>
+<p>A tu velocímetro no le importa el diámetro del neumático en un taller. Solo le importa la distancia del centro del eje al suelo mientras se conduce. Si tus neumáticos tienen poca presión, la pared lateral se hunde. Esto reduce efectivamente el radio de rodadura. Un neumático de 33 pulgadas funcionando a unos bajos 20 PSI podría tener en realidad un diámetro de rodaje cercano a 31.8 pulgadas. ¡Tu velocímetro leerá una velocidad más rápida de lo que realmente vas!</p>
+
+<h2>El impacto directo en MPG</h2>
+<p>Los neumáticos desinflados aumentan la superficie de contacto con la carretera. Aunque esto es genial para el off-road, es terrible para la economía de combustible. El motor debe quemar más combustible para mantener las velocidades de autopista. Mantener presiones óptimas es la mejor de las decisiones financieras para tu camioneta.</p>
+`
+  },
+  {
+    slug: "how-tire-pressure-affects-diameter-and-mpg-ja",
+    language: "ja",
+    translationGroup: "tire-pressure-mpg",
+    title: "空気圧（PSI）がタイヤの実際の外径と燃費に与える影響",
+    description: "不適切なタイヤ空気圧が、スピードメーターの誤差や燃費低下を引き起こすメカニズムについて詳しく説明します。",
+    date: "2026-03-22",
+    category: "タイヤの科学",
+    keywords: ["タイヤ空気圧", "外径計算", "燃費低下", "スピードメーター誤差"],
+    content: `
+<h2>タイヤ計算における隠れた変数：空気圧</h2>
+<p>タイヤサイズ計算機を使って外径を計算するとき、その結果は理想的な真円としての理論値です。しかし、車体重量が乗った状態ではタイヤは変形します。この実際の直径の変化に最も大きな影響を与えるのが<strong>タイヤの空気圧（PSI）</strong>です。</p>
+
+<h3>「荷重時の転がり半径」の秘密</h3>
+<p>車のスピードメーターは、理論上の外径ではなく、車軸の中心から地面までの<strong>荷重時の転がり半径（Loaded Rolling Radius）</strong>に基づいて速度を計算します。空気圧が低いとサイドウォールがたわみ、転がり半径が小さくなります。33インチのタイヤでも空気圧を抜くと、事実上31.8インチのタイヤとして機能してしまいます。</p>
+
+<h2>燃費（MPG）への直接的な影響</h2>
+<p>空気圧が低いと、路面との「接地面積（コンタクトパッチ）」が広くなります。悪路では高いトラクションを発揮しますが、舗装路や高速道路では転がり抵抗が大幅に増加し、燃費を悪化させます。大型タイヤに変更した後、燃費の悪化を最小限に抑える最も簡単な方法は、メーカー推奨の空気圧を定期的にチェックすることです。</p>
+`
+  }
 ];
